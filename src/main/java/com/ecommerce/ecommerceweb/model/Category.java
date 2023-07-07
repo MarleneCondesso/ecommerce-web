@@ -4,13 +4,13 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name="categories")
+@Table(name="category")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column( name = "category_name")
+    @Column( name = "name")
     private @NotBlank String name;
 
     private @NotBlank String description;
