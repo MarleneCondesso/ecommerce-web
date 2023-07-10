@@ -1,34 +1,23 @@
-package com.ecommerce.ecommerceweb.model;
+package com.ecommerce.ecommerceweb.dto;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-@Entity
-@Table(name = "product")
-public class Product {
+public class ProductDTO {
 
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private @NotNull Integer id;
+    private Integer id;
     private @NotNull String name;
     private @NotNull String image;
     private @NotNull double price;
     private @NotNull String description;
+    private @NotNull Integer category_id;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    Category category;
 
-    public Integer getId() {
-        return this.id;
+    public ProductDTO() {
     }
 
     public void setId(Integer id) {
         this.id = id;
     }
-
     public String getName() {
         return name;
     }
@@ -61,11 +50,11 @@ public class Product {
         this.description = description;
     }
 
-    public Category getCategory() {
-        return category;
+    public Integer getCategory_id() {
+        return category_id;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategory_id(Integer category_id) {
+        this.category_id = category_id;
     }
 }
