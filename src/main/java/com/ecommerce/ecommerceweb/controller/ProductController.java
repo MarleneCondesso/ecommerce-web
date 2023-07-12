@@ -2,6 +2,7 @@ package com.ecommerce.ecommerceweb.controller;
 
 import com.ecommerce.ecommerceweb.dto.ProductDTO;
 import com.ecommerce.ecommerceweb.lib.api.ApiResponse;
+import com.ecommerce.ecommerceweb.model.Product;
 import com.ecommerce.ecommerceweb.repository.CategoryRepository;
 import com.ecommerce.ecommerceweb.service.CategoryService;
 import com.ecommerce.ecommerceweb.service.ProductService;
@@ -29,7 +30,12 @@ public class ProductController {
 
         return new ResponseEntity<>(productsDTO, HttpStatus.OK);
     }
+    @GetMapping("/listWithCategory")
+    public ResponseEntity<List<Product>> getAllWithCategory(){
+        List<Product> products = productService.listAllWithCategoryDetails();
 
+        return new ResponseEntity<>(products, HttpStatus.OK);
+    }
     @PostMapping("/create")
     public ResponseEntity<ApiResponse> create(@Valid @RequestBody ProductDTO productDTO){
 

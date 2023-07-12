@@ -1,6 +1,7 @@
 package com.ecommerce.ecommerceweb.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "user")
@@ -8,19 +9,25 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
+    private @NotNull Integer id;
     @Column(name = "first_name")
-    private String firstName;
-
+    private @NotNull String firstName;
     @Column(name = "last_name")
-    private String lastName;
+    private @NotNull String lastName;
     @Column(name = "email")
-    private String email;
+    private @NotNull String email;
     @Column(name = "password")
-    private String password;
+    private @NotNull String password;
 
     public User(String firstName, String lastName, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(Integer id, String firstName, String lastName, String email, String password) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

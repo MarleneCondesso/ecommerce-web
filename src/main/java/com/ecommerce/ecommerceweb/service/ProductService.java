@@ -34,6 +34,12 @@ public class ProductService {
 
         return productDTOS;
     }
+
+    public List<Product> listAllWithCategoryDetails() {
+
+        return productRepository.findAll();
+
+    }
     public void createProduct(ProductDTO productDTO, Category category){
 
         Product product = new Product();

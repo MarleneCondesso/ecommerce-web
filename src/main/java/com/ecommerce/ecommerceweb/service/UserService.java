@@ -16,6 +16,7 @@ import javax.transaction.Transactional;
 import javax.xml.bind.DatatypeConverter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -26,8 +27,11 @@ public class UserService {
     UserRepository userRepository;
 
     @Autowired
-    AuthenticationTokenService autenticationTokenService;
+    AuthenticationTokenService authenticationTokenService;
 
+    public List<User> listUsers(){
+        return userRepository.findAll();
+    }
     @Transactional
     public ApiResponseSignUpUser signUp(SignUp signUp){
         if(readUserByEmail(signUp.getEmail())){
@@ -46,7 +50,7 @@ public class UserService {
 
         userRepository.save(user);
 
-        autenticationTokenService.createAutenticationToken(user);
+        authenticationTokenService.createAuthenticationToken(user);
 
         return new ApiResponseSignUpUser("sucess", "this is a new sign up!");
     }
@@ -67,20 +71,19 @@ public class UserService {
             throw new AuthenticationException(e.getMessage());
         }
 
-        AuthenticationToken token = autenticationTokenService.readAuthenticationTokenByUser(user);
+        AuthenticationToken token = authenticationTokenService.readAuthenticationTokenByUser(user);
 
         if(Objects.isNull(token)){
-            throw new CustomException("This user can not acess to his token!");
+            throw new CustomException("This user can not access to his token!");
         }
 
-        return new ApiResponseSignInUser("sucess", token.getToken());
+        return new ApiResponseSignInUser("success", token.getToken());
     }
 
 
     public boolean readUserByEmail(String email){
        return Objects.nonNull(userRepository.findByEmail(email));
     }
-
 
     private String hashPassword(String password) throws NoSuchAlgorithmException {
         MessageDigest messageDigest = MessageDigest.getInstance("MD5");
