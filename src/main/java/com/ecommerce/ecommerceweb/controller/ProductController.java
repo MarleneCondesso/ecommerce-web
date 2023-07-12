@@ -1,22 +1,17 @@
 package com.ecommerce.ecommerceweb.controller;
 
 import com.ecommerce.ecommerceweb.dto.ProductDTO;
-import com.ecommerce.ecommerceweb.lib.ApiResponse;
-import com.ecommerce.ecommerceweb.model.Category;
-import com.ecommerce.ecommerceweb.model.Product;
+import com.ecommerce.ecommerceweb.lib.api.ApiResponse;
 import com.ecommerce.ecommerceweb.repository.CategoryRepository;
 import com.ecommerce.ecommerceweb.service.CategoryService;
 import com.ecommerce.ecommerceweb.service.ProductService;
-import net.bytebuddy.utility.nullability.MaybeNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Null;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/product")

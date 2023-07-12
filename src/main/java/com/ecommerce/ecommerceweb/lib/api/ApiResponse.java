@@ -1,4 +1,4 @@
-package com.ecommerce.ecommerceweb.lib;
+package com.ecommerce.ecommerceweb.lib.api;
 
 import java.time.LocalDateTime;
 
