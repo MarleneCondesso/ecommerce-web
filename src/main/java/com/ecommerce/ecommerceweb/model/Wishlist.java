@@ -22,18 +22,18 @@ public class Wishlist {
     private Product product;
 
     @Column(name = "created_date")
-    private Date created_date;
+    private Date createdDate;
 
-    public Wishlist(User user, Product product, Date created_date) {
+    public Wishlist(User user, Product product, Date createdDate) {
         this.user = user;
         this.product = product;
-        this.created_date = created_date;
+        this.createdDate = createdDate;
     }
 
     public Wishlist(User user, Product product) {
         this.user = user;
         this.product = product;
-        this.created_date = new Date();
+        this.createdDate = new Date();
     }
 
     public Wishlist() {
@@ -64,11 +64,11 @@ public class Wishlist {
         this.product = product;
     }
 
-    public Date getCreated_date() {
-        return created_date;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setCreated_date(Date created_date) {
-        this.created_date = created_date;
+    public void setCreatedDate(Date created_date) {
+        this.createdDate = created_date;
     }
 }

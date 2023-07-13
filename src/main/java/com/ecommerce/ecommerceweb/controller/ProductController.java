@@ -1,6 +1,6 @@
 package com.ecommerce.ecommerceweb.controller;
 
-import com.ecommerce.ecommerceweb.dto.ProductDTO;
+import com.ecommerce.ecommerceweb.lib.dto.ProductDTO;
 import com.ecommerce.ecommerceweb.lib.api.ApiResponse;
 import com.ecommerce.ecommerceweb.model.Product;
 import com.ecommerce.ecommerceweb.repository.CategoryRepository;

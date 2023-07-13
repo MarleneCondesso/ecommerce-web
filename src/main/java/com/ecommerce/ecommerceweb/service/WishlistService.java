@@ -1,7 +1,7 @@
 package com.ecommerce.ecommerceweb.service;
 
-import com.ecommerce.ecommerceweb.dto.ProductDTO;
-import com.ecommerce.ecommerceweb.mapping.ProductToProductDTOMapper;
+import com.ecommerce.ecommerceweb.lib.dto.ProductDTO;
+import com.ecommerce.ecommerceweb.lib.mapping.ProductToProductDTOMapper;
 import com.ecommerce.ecommerceweb.model.User;
 import com.ecommerce.ecommerceweb.model.Wishlist;
 import com.ecommerce.ecommerceweb.repository.WishlistRepository;
@@ -23,8 +23,7 @@ public class WishlistService {
 
     public List<ProductDTO> get(User user){
         List<ProductDTO> productDTOS = new ArrayList<>();
-        List<Wishlist> wishlists = wishlistRepository.findAllByUserOrderByCreated_dateDesc(user);
-
+        List<Wishlist> wishlists = wishlistRepository.findAllByUserOrderByCreatedDateDesc(user);
 
         for(Wishlist wishlist : wishlists){
 

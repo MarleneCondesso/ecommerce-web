@@ -21,7 +21,6 @@ public class AuthenticationTokenService {
         return authenticationTokenRepository.findAll();
     }
 
-
     public void createAuthenticationToken(User user){
 
         AuthenticationToken authenticationToken = new AuthenticationToken(user);
@@ -51,7 +50,11 @@ public class AuthenticationTokenService {
         if(Objects.isNull(readUserByAuthenticationToken(authenticationToken))){
             throw new AuthenticationException("This token is invalid!");
         }
+   }
 
+   public User checkTokenAndReturnUserByToken(String token){
+       checkIfAuthenticationTokenExists(token);
 
+       return readUserByAuthenticationToken(token);
    }
 }

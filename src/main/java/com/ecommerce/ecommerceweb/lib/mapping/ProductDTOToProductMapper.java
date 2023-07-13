@@ -1,6 +1,6 @@
-package com.ecommerce.ecommerceweb.mapping;
+package com.ecommerce.ecommerceweb.lib.mapping;
 
-import com.ecommerce.ecommerceweb.dto.ProductDTO;
+import com.ecommerce.ecommerceweb.lib.dto.ProductDTO;
 import com.ecommerce.ecommerceweb.model.Category;
 import com.ecommerce.ecommerceweb.model.Product;
 import org.mapstruct.Mapper;

@@ -1,8 +1,8 @@
 package com.ecommerce.ecommerceweb.service;
 
-import com.ecommerce.ecommerceweb.dto.ProductDTO;
-import com.ecommerce.ecommerceweb.mapping.ProductDTOToProductMapper;
-import com.ecommerce.ecommerceweb.mapping.ProductToProductDTOMapper;
+import com.ecommerce.ecommerceweb.lib.dto.ProductDTO;
+import com.ecommerce.ecommerceweb.lib.mapping.ProductDTOToProductMapper;
+import com.ecommerce.ecommerceweb.lib.mapping.ProductToProductDTOMapper;
 import com.ecommerce.ecommerceweb.model.Category;
 import com.ecommerce.ecommerceweb.model.Product;
 import com.ecommerce.ecommerceweb.repository.ProductRepository;
@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 @Service
@@ -57,6 +58,11 @@ public class ProductService {
         productRepository.save(product);
     }
     public boolean readProductById(Integer id){
-        return productRepository.findById(id).isPresent();
+        return Objects.nonNull(findById(id));
     }
+
+    public Product findById(Integer id){
+       return productRepository.findById(id).get();
+    }
+
 }

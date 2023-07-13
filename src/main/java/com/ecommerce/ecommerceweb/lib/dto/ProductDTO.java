@@ -1,4 +1,4 @@
-package com.ecommerce.ecommerceweb.dto;
+package com.ecommerce.ecommerceweb.lib.dto;
 
 import javax.validation.constraints.NotNull;
 
